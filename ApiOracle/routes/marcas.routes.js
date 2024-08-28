@@ -1,13 +1,13 @@
 import { Router } from "express";
+import { createMarca,getMarcaById,getMarcas,updateMarca,deleteMarca } from "../controllers/marcas.controller.js";
 
 
 const route = Router()
 
-route.get('/marcas')
-route.get('/marca/:id')
-route.post('/marcas')
-route.put('/marcas/:id')
-route.delete('/marcas/:id')
-
+route.get('/marcas',getMarcas)
+route.get('/marca/:id',getMarcaById)
+route.post('/marcas',createMarca)
+route.put('/marcas/:id',updateMarca)
+route.delete('/marcas/:id',deleteMarca)
 
 export default route

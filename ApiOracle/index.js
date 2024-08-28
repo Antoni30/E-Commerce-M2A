@@ -2,7 +2,10 @@ import express from  "express"
 import cors from 'cors'
 import {checkConnection,checkConnectionEsclavo} from "./libs/db.js"
 import categorias from "./routes/categorias.routes.js"
-
+import marcas from "./routes/marcas.routes.js"
+import productos from "./routes/productos.routes.js"
+import proveedor from "./routes/proveedor.routes.js"
+import proveedor_marca from "./routes/proveedor_marcas.routes.js"
 
 const PORT = 2026;
 
@@ -17,6 +20,10 @@ app.use(cors({
 
 app.use(express.json())
 app.use("/API",categorias)
+app.use("/API",marcas)
+app.use("/API",proveedor)
+app.use('/API',productos)
+app.use('/API',proveedor_marca)
 
 app.get('/',(req,res)=>{
     res.send("Server ON 😁👍")
