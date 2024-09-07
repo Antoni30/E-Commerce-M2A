@@ -12,7 +12,7 @@ const ProductList = ({ selectedCategory }) => {
       try {
         // Si hay una categoría seleccionada, agregamos un query param para filtrarla
         const response = await axios.get(
-          `http://localhost:2026/API/productos${selectedCategory ? `?categoria=${selectedCategory}` : ''}`
+          `http://localhost:80/Oracle/API/productos${selectedCategory ? `?categoria=${selectedCategory}` : ''}`
         );
         setProducts(response.data.data); // Ajusta según la estructura de respuesta de tu API
         setLoading(false);
@@ -29,7 +29,7 @@ const ProductList = ({ selectedCategory }) => {
   if (error) return <p>{error}</p>;
 
   return (
-    <div className="grid grid-cols-1 absolute w-full top-60 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
+    <div className="grid grid-cols-1 absolute w-full top-60 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-4">
       {products.map((product) => (
         <ProductCard key={product.ID_PRODUCTO} product={product} />
       ))}

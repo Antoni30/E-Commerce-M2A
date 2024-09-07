@@ -24,7 +24,7 @@ function App() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get('http://localhost:2026/API/categorias');
+        const response = await axios.get('http://localhost:80/Oracle/API/categorias');
         setCategoria(response.data.data);
         setLoading(false);
       } catch (err) {
@@ -51,7 +51,6 @@ function App() {
     <div className="h-screen">
       <Carousel />
       <Navbar />
-
       {/* Botones para seleccionar categoría */}
       <div className="flex justify-center space-x-4 mt-4 absolute top-48 left-[35%]">
         <button
